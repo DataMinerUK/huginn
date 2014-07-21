@@ -3,9 +3,9 @@
     <% if @scenario_import.dangerous? %>
       <div class="alert alert-danger">
         <span class='glyphicon glyphicon-warning-sign'></span>
-        This Scenario contains one or more potentially dangerous Agents.
+        This Scenario contains one or more potentially dangerous Robots.
         These may be able to run local commands or execute code.
-        Please be sure that you understand the Agent configurations before importing!
+        Please be sure that you understand the Robot configurations before importing!
       </div>
     <% end %>
 
@@ -15,7 +15,7 @@
         This Scenario already exists in your system. The import will update your existing
         <span class='label label-info scenario'><%= @scenario_import.existing_scenario.name %></span> Scenario's title
         and
-        description. Below you can customize how the individual agents get updated.
+        description. Below you can customize how the individual robots get updated.
       </div>
     <% end %>
 
@@ -23,7 +23,7 @@
       <h2>
         <%= @scenario_import.parsed_data["name"] %>
         <span class='text-muted'>
-          (<%= pluralize @scenario_import.parsed_data["agents"].length, "Agent" %>;
+          (<%= pluralize @scenario_import.parsed_data["agents"].length, "Robot" %>;
           exported <%= time_ago_in_words Time.parse(@scenario_import.parsed_data["exported_at"]) %> ago)
         </span>
       </h2>
@@ -45,13 +45,13 @@
           <h3>
             <a href='#' data-toggle="modal" data-target="#agent_options_<%= index %>"><%= agent_diff.name.incoming %></a>
             <span class='text-muted'>
-              (<%= agent_diff.type.incoming %><% " -- WARNING: this Agent's type has been changed.  This import will likely fail!" if agent_diff.type.requires_merge? %>)
+              (<%= agent_diff.type.incoming %><% " -- WARNING: this Robot's type has been changed.  This import will likely fail!" if agent_diff.type.requires_merge? %>)
             </span>
           </h3>
 
           <% if agent_diff.agent_exists? %>
             <div class="instructions">
-              This Agent exists in your NewsUK Alerts system.
+              This Robot exists in your NewsUK Alerts system.
 
               <% if agent_diff.requires_merge? %>
                 Here are the differences between the incoming version and the one you have now. For each field, please
@@ -85,13 +85,13 @@
               <%= label_tag "scenario_import[merges][#{index}][#{field}]", field.titleize %>
               <% if selection_options.present? %>
                 <div>
-                  Your current Agent's value is:
+                  Your current Robot's value is:
                   <span class='current'><%= selection_options.find { |s| s.last.to_s == value.current.to_s }.first %></span>
                 </div>
                 <%= select_tag "scenario_import[merges][#{index}][#{field}]", options_for_select(selection_options, value.updated), :class => 'form-control' %>
               <% else %>
                 <div>
-                  Your current Agent's value is: <span class='current'><%= value.current.to_s %></span>
+                  Your current Robot's value is: <span class='current'><%= value.current.to_s %></span>
                 </div>
                 <%= text_field_tag "scenario_import[merges][#{index}][#{field}]", value.updated, :class => 'form-control' %>
               <% end %>
@@ -128,7 +128,7 @@
   <div class='col-md-12'>
     <div class="checkbox">
       <%= f.label :do_import do %>
-        <%= f.check_box :do_import %> I confirm that I want to import these Agents.
+        <%= f.check_box :do_import %> I confirm that I want to import these Robots.
       <% end %>
     </div>
 

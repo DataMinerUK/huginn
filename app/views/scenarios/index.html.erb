@@ -7,13 +7,13 @@
         </h2>
       </div>
 
-      <blockquote>Scenarios are named groups of Agents.  Scenarios allow you to organize your agents,
-        and to import and export sets of Agents to share.</blockquote>
+      <blockquote>Scenarios are named groups of Robots.  Scenarios allow you to organize your robots,
+        and to import and export sets of Robots to share.</blockquote>
 
       <table class='table table-striped'>
         <tr>
           <th>Name</th>
-          <th>Agents</th>
+          <th>Robots</th>
           <th>Public</th>
           <th></th>
         </tr>
@@ -23,14 +23,14 @@
             <td>
               <%= link_to(scenario.name, scenario) %>
             </td>
-            <td><%= link_to pluralize(scenario.agents.count, "agent"), scenario %></td>
+            <td><%= link_to pluralize(scenario.agents.count, "robot"), scenario %></td>
             <td><%= scenario.public? ? "yes" : "no" %></td>
             <td>
               <div class="btn-group btn-group-xs" style="float: right">
                 <%= link_to 'Show', scenario, class: "btn btn-default" %>
                 <%= link_to 'Edit', edit_scenario_path(scenario), class: "btn btn-default" %>
                 <%= link_to 'Share', share_scenario_path(scenario), class: "btn btn-default" %>
-                <%= link_to 'Delete', scenario_path(scenario), method: :delete, data: { confirm: "This will remove the '#{scenario.name}' Scenerio from all Agents and delete it.  Are you sure?" }, class: "btn btn-default" %>
+                <%= link_to 'Delete', scenario_path(scenario), method: :delete, data: { confirm: "This will remove the '#{scenario.name}' Scenerio from all Robots and delete it.  Are you sure?" }, class: "btn btn-default" %>
               </div>
             </td>
           </tr>

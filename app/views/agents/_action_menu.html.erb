@@ -12,18 +12,18 @@
   <li class="divider"></li>
 
   <li>
-    <%= link_to '<span class="glyphicon glyphicon-pencil"></span> Edit agent'.html_safe, edit_agent_path(agent) %>
+    <%= link_to '<span class="glyphicon glyphicon-pencil"></span> Edit robot'.html_safe, edit_agent_path(agent) %>
   </li>
 
   <li>
-    <%= link_to '<span class="glyphicon glyphicon-plus"></span> Clone agent'.html_safe, new_agent_path(id: agent), :tabindex => "-1" %>
+    <%= link_to '<span class="glyphicon glyphicon-plus"></span> Clone robot'.html_safe, new_agent_path(id: agent), :tabindex => "-1" %>
   </li>
 
   <li>
     <% if agent.disabled? %>
-      <%= link_to '<i class="glyphicon glyphicon-play"></i> Enable agent'.html_safe, agent_path(agent, :agent => { :disabled => false }, :return => returnTo), :method => :put %>
+      <%= link_to '<i class="glyphicon glyphicon-play"></i> Enable robot'.html_safe, agent_path(agent, :agent => { :disabled => false }, :return => returnTo), :method => :put %>
     <% else %>
-      <%= link_to '<i class="glyphicon glyphicon-pause"></i> Disable agent'.html_safe, agent_path(agent, :agent => { :disabled => true }, :return => returnTo), :method => :put %>
+      <%= link_to '<i class="glyphicon glyphicon-pause"></i> Disable robot'.html_safe, agent_path(agent, :agent => { :disabled => true }, :return => returnTo), :method => :put %>
     <% end %>
   </li>
 
@@ -41,11 +41,11 @@
 
   <% if agent.can_create_events? && agent.events.count > 0 %>
     <li>
-      <%= link_to '<span class="color-danger glyphicon glyphicon-trash"></span> Delete all events'.html_safe, remove_events_agent_path(agent, :return => returnTo), method: :delete, data: {confirm: 'Are you sure you want to delete ALL emitted events for this Agent?'}, :tabindex => "-1" %>
+      <%= link_to '<span class="color-danger glyphicon glyphicon-trash"></span> Delete all events'.html_safe, remove_events_agent_path(agent, :return => returnTo), method: :delete, data: {confirm: 'Are you sure you want to delete ALL emitted events for this Robot?'}, :tabindex => "-1" %>
     </li>
   <% end %>
 
   <li>
-    <%= link_to '<span class="color-danger glyphicon glyphicon-remove"></span> Delete agent'.html_safe, agent_path(agent, :return => returnTo), method: :delete, data: { confirm: 'Are you sure that you want to permanently delete this Agent?' }, :tabindex => "-1" %>
+    <%= link_to '<span class="color-danger glyphicon glyphicon-remove"></span> Delete robot'.html_safe, agent_path(agent, :return => returnTo), method: :delete, data: { confirm: 'Are you sure that you want to permanently delete this Robot?' }, :tabindex => "-1" %>
   </li>
 </ul>
