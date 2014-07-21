@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-12'>
       <div class="page-header">
-        <h2><span class='label label-info scenario'><%= @scenario.name %></span> <%= "Public" if @scenario.public? %> Scenario</h2>
+        <h2><span class='label label-info scenario'><%= @scenario.name %></span> <%= "Public" if @scenario.public? %> Assemblage</h2>
       </div>
 
       <% if @scenario.description.present? %>
@@ -21,7 +21,7 @@
           <%= link_to '<span class="glyphicon glyphicon-plus"></span> Update'.html_safe, new_scenario_imports_path(:url => @scenario.source_url), class: "btn btn-default" %>
         <% end %>
         <%= link_to '<span class="glyphicon glyphicon-share-alt"></span> Share'.html_safe, share_scenario_path(@scenario), class: "btn btn-default" %>
-        <%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, scenario_path(@scenario), method: :delete, data: { confirm: "This will remove the '#{@scenario.name}' Scenerio from all Robots and delete it.  Are you sure?" }, class: "btn btn-default" %>
+        <%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, scenario_path(@scenario), method: :delete, data: { confirm: "This will remove the '#{@scenario.name}' Assemblage from all Robots and delete it.  Are you sure?" }, class: "btn btn-default" %>
       </div>
     </div>
   </div>

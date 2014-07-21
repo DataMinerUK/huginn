@@ -3,7 +3,7 @@
     <% if @scenario_import.dangerous? %>
       <div class="alert alert-danger">
         <span class='glyphicon glyphicon-warning-sign'></span>
-        This Scenario contains one or more potentially dangerous Robots.
+        This Assemblage contains one or more potentially dangerous Robots.
         These may be able to run local commands or execute code.
         Please be sure that you understand the Robot configurations before importing!
       </div>
@@ -12,8 +12,8 @@
     <% if @scenario_import.existing_scenario.present? %>
       <div class="alert alert-warning">
         <span class='glyphicon glyphicon-warning-sign'></span>
-        This Scenario already exists in your system. The import will update your existing
-        <span class='label label-info scenario'><%= @scenario_import.existing_scenario.name %></span> Scenario's title
+        This Assemblage already exists in your system. The import will update your existing
+        <span class='label label-info scenario'><%= @scenario_import.existing_scenario.name %></span> Assemblage's title
         and
         description. Below you can customize how the individual robots get updated.
       </div>

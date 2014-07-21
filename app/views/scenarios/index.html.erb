@@ -3,11 +3,11 @@
     <div class='col-md-12'>
       <div class="page-header">
         <h2>
-          Your Scenarios
+          Your Assemblages
         </h2>
       </div>
 
-      <blockquote>Scenarios are named groups of Robots.  Scenarios allow you to organize your robots,
+      <blockquote>Assemblages are named groups of Robots.  Assemblages allow you to organize your robots,
         and to import and export sets of Robots to share.</blockquote>
 
       <table class='table table-striped'>
@@ -30,7 +30,7 @@
                 <%= link_to 'Show', scenario, class: "btn btn-default" %>
                 <%= link_to 'Edit', edit_scenario_path(scenario), class: "btn btn-default" %>
                 <%= link_to 'Share', share_scenario_path(scenario), class: "btn btn-default" %>
-                <%= link_to 'Delete', scenario_path(scenario), method: :delete, data: { confirm: "This will remove the '#{scenario.name}' Scenerio from all Robots and delete it.  Are you sure?" }, class: "btn btn-default" %>
+                <%= link_to 'Delete', scenario_path(scenario), method: :delete, data: { confirm: "This will remove the '#{scenario.name}' Assemblage from all Robots and delete it.  Are you sure?" }, class: "btn btn-default" %>
               </div>
             </td>
           </tr>
@@ -42,8 +42,8 @@
       <br/>
 
       <div class="btn-group">
-        <%= link_to '<span class="glyphicon glyphicon-plus"></span> New Scenario'.html_safe, new_scenario_path, class: "btn btn-default" %>
-        <%= link_to '<span class="glyphicon glyphicon-plus"></span> Import Scenario'.html_safe, new_scenario_imports_path, class: "btn btn-default" %>
+        <%= link_to '<span class="glyphicon glyphicon-plus"></span> New Assemblage'.html_safe, new_scenario_path, class: "btn btn-default" %>
+        <%= link_to '<span class="glyphicon glyphicon-plus"></span> Import Assemblage'.html_safe, new_scenario_imports_path, class: "btn btn-default" %>
       </div>
     </div>
   </div>
