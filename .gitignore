@@ -25,3 +25,4 @@ deployment/cookbooks
 .ruby-gemset
 .ruby-version
 Dockerfile
+design.pages
