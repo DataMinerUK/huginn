@@ -24,5 +24,4 @@ deployment/cookbooks
 .*un~
 .ruby-gemset
 .ruby-version
-Dockerfile
 design.pages
