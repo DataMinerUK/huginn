@@ -6,7 +6,7 @@ module Agents
     default_schedule "never"
 
     description <<-MD
-      This Agent allows you to write code in JavaScript that can create and receive events.  If other Agents aren't meeting your needs, try this one!
+      This Robot allows you to write code in JavaScript that can create and receive events.  If other Robots aren't meeting your needs, try this one!
 
       You can put code in the `code` option, or put your code in a Credential and reference it from `code` with `credential:<name>` (recommended).
 

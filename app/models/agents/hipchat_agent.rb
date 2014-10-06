@@ -4,7 +4,7 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The HipchatAgent sends messages to a Hipchat Room
+      The HipchatBot sends messages to a Hipchat Room
 
       To authenticate you need to set the `auth_token`, you can get one at your Hipchat Group Admin page which you can find here:
 
@@ -23,8 +23,8 @@ module Agents
       {
         'auth_token' => '',
         'room_name' => '',
-        'username' => "Huginn",
-        'message' => "Hello from Huginn!",
+        'username' => "NewsUK Alerts",
+        'message' => "Hello from NewsUK!",
         'notify' => false,
         'color' => 'yellow',
       }

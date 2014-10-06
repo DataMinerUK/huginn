@@ -9,7 +9,7 @@ module Agents
     default_schedule "every_12h"
 
     description <<-MD
-      The FtpsiteAgent checks a FTP site and creates Events based on newly uploaded files in a directory.
+      The FtpsiteBot checks a FTP site and creates Events based on newly uploaded files in a directory.
 
       Specify a `url` that represents a directory of an FTP site to watch, and a list of `patterns` to match against file names.
 

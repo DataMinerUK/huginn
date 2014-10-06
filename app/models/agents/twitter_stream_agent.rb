@@ -5,24 +5,24 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      The TwitterStreamAgent follows the Twitter stream in real time, watching for certain keywords, or filters, that you provide.
+      The TwitterStreamBot follows the Twitter stream in real time, watching for certain keywords, or filters, that you provide.
 
       To follow the Twitter stream, provide an array of `filters`.  Multiple words in a filter must all show up in a tweet, but are independent of order.
       If you provide an array instead of a filter, the first entry will be considered primary and any additional values will be treated as aliases.
 
       Twitter credentials must be supplied as either [credentials](/user_credentials) called
       `twitter_consumer_key`, `twitter_consumer_secret`, `twitter_oauth_token`, and `twitter_oauth_token_secret`,
-      or as options to this Agent called `consumer_key`, `consumer_secret`, `oauth_token`, and `oauth_token_secret`.
+      or as options to this Robot called `consumer_key`, `consumer_secret`, `oauth_token`, and `oauth_token_secret`.
 
       To get oAuth credentials for Twitter, [follow these instructions](https://github.com/cantino/huginn/wiki/Getting-a-twitter-oauth-token).
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.
 
-      `generate` should be either `events` or `counts`.  If set to `counts`, it will output event summaries whenever the Agent is scheduled.
+      `generate` should be either `events` or `counts`.  If set to `counts`, it will output event summaries whenever the Robot is scheduled.
     MD
 
     event_description <<-MD
-      When in `counts` mode, TwitterStreamAgent events look like:
+      When in `counts` mode, TwitterStreamBot events look like:
 
           {
             "filter": "hello world",
@@ -30,7 +30,7 @@ module Agents
             "time": 3456785456
           }
 
-      When in `events` mode, TwitterStreamAgent events look like:
+      When in `events` mode, TwitterStreamBot events look like:
 
           {
             "filter": "selectorgadget",

@@ -4,7 +4,7 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The Pushbullet agent sends pushes to a pushbullet device
+      The Pushbullet robot sends pushes to a pushbullet device
 
       To authenticate you need to set the `api_key`, you can find yours at your account page:
 

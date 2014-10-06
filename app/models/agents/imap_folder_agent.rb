@@ -10,7 +10,7 @@ module Agents
 
     description <<-MD
 
-      The ImapFolderAgent checks an IMAP server in specified folders
+      The ImapFolderBotchecks an IMAP server in specified folders
       and creates Events based on new unread mails.
 
       Specify an IMAP server to connect with `host`, and set `ssl` to
@@ -74,7 +74,7 @@ module Agents
 
       Set `mark_as_read` to true to mark found mails as read.
 
-      Each agent instance memorizes a list of unread mails that are
+      Each robot instance memorizes a list of unread mails that are
       found in the last run, so even if you change a set of conditions
       so that it matches mails that are missed previously, they will
       not show up as new events.  Also, in order to avoid duplicated

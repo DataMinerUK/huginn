@@ -9,20 +9,20 @@ module Agents
     end
 
     description <<-MD
-      The ShellCommandAgent can execute commands on your local system, returning the output.
+      The ShellCommandBot can execute commands on your local system, returning the output.
 
-      `command` specifies the command to be executed, and `path` will tell ShellCommandAgent in what directory to run this command.
+      `command` specifies the command to be executed, and `path` will tell ShellCommandBot in what directory to run this command.
 
-      `expected_update_period_in_days` is used to determine if the Agent is working.
+      `expected_update_period_in_days` is used to determine if the Robot is working.
 
-      ShellCommandAgent can also act upon received events. When receiving an event, this Agent's options can interpolate values from the incoming event.
+      ShellCommandBot can also act upon received events. When receiving an event, this Robot's options can interpolate values from the incoming event.
       For example, your command could be defined as `{{cmd}}`, in which case the event's `cmd` property would be used.
 
       The resulting event will contain the `command` which was executed, the `path` it was executed under, the `exit_status` of the command, the `errors`, and the actual `output`. ShellCommandAgent will not log an error if the result implies that something went wrong.
 
-      *Warning*: This type of Agent runs arbitrary commands on your system, #{Agents::ShellCommandAgent.should_run? ? "but is **currently enabled**" : "and is **currently disabled**"}.
-      Only enable this Agent if you trust everyone using your Huginn installation.
-      You can enable this Agent in your .env file by setting `ENABLE_INSECURE_AGENTS` to `true`.
+      *Warning*: This type of Robot runs arbitrary commands on your system, #{Agents::ShellCommandAgent.should_run? ? "but is **currently enabled**" : "and is **currently disabled**"}.
+      Only enable this Robot if you trust everyone using your Huginn installation.
+      You can enable this Robot in your .env file by setting `ENABLE_INSECURE_AGENTS` to `true`.
     MD
 
     event_description <<-MD
@@ -83,7 +83,7 @@ module Agents
 
         log("Ran '#{command}' under '#{path}'", :outbound_event => created_event, :inbound_event => event)
       else
-        log("Unable to run because insecure agents are not enabled.  Edit ENABLE_INSECURE_AGENTS in the Huginn .env configuration.")
+        log("Unable to run because insecure robots are not enabled.  Edit ENABLE_INSECURE_AGENTS in the Huginn .env configuration.")
       end
     end
 

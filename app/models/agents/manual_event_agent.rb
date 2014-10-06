@@ -4,7 +4,7 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      Use this Agent to manually create Events for testing or other purposes.
+      Use this Robot to manually create Events for testing or other purposes.
     MD
 
     event_description "User determined"

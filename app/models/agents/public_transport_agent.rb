@@ -13,23 +13,23 @@ module Agents
       * agency (string)
       * alert_window_in_minutes (integer)
 
-      This Agent generates Events based on NextBus GPS transit predictions.  First, select an agency by visiting [http://www.nextbus.com/predictor/agencySelector.jsp](http://www.nextbus.com/predictor/agencySelector.jsp) and finding your transit system.  Once you find it, copy the part of the URL after `?a=`.  For example, for the San Francisco MUNI system, you would end up on [http://www.nextbus.com/predictor/stopSelector.jsp?a=**sf-muni**](http://www.nextbus.com/predictor/stopSelector.jsp?a=sf-muni) and copy "sf-muni".  Put that into this Agent's agency setting.
+      This Robot generates Events based on NextBus GPS transit predictions.  First, select an agency by visiting [http://www.nextbus.com/predictor/agencySelector.jsp](http://www.nextbus.com/predictor/agencySelector.jsp) and finding your transit system.  Once you find it, copy the part of the URL after `?a=`.  For example, for the San Francisco MUNI system, you would end up on [http://www.nextbus.com/predictor/stopSelector.jsp?a=**sf-muni**](http://www.nextbus.com/predictor/stopSelector.jsp?a=sf-muni) and copy "sf-muni".  Put that into this Robot's agency setting.
 
       Next, find the stop tags that you care about.  To find the tags for the sf-muni system, for the N route, visit this URL:
       [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r=**N**](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r=N)
 
-      The tags are listed as tag="1234". Copy that number and add the route before it, separated by a pipe '&#124;' symbol.  Once you have one or more tags from that page, add them to this Agent's stop list.  E.g,
+      The tags are listed as tag="1234". Copy that number and add the route before it, separated by a pipe '&#124;' symbol.  Once you have one or more tags from that page, add them to this Robot's stop list.  E.g,
 
           agency: "sf-muni"
           stops: ["N|5221", "N|5215"]
 
       Remember to pick the appropriate stop, which will have different tags for in-bound and out-bound.
 
-      This Agent will generate predictions by requesting a URL similar to the following:
+      This Robot will generate predictions by requesting a URL similar to the following:
 
       [http://webservices.nextbus.com/service/publicXMLFeed?command=predictionsForMultiStops&a=sf-muni&stops=N&#124;5221&stops=N&#124;5215](http://webservices.nextbus.com/service/publicXMLFeed?command=predictionsForMultiStops&a=sf-muni&stops=N&#124;5221&stops=N&#124;5215)
 
-      Finally, set the arrival window that you're interested in.  E.g., 5 minutes.  Events will be created by the agent anytime a new train or bus comes into that time window.
+      Finally, set the arrival window that you're interested in.  E.g., 5 minutes.  Events will be created by the robot anytime a new train or bus comes into that time window.
 
           alert_window_in_minutes: 5
     MD

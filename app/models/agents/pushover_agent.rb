@@ -6,7 +6,7 @@ module Agents
     API_URL = 'https://api.pushover.net/1/messages.json'
 
     description <<-MD
-      The PushoverAgent receives and collects events and sends them via push notification to a user/group.
+      The PushoverBot receives and collects events and sends them via push notification to a user/group.
 
       **You need a Pushover API Token:** [https://pushover.net/apps/build](https://pushover.net/apps/build)
 
@@ -14,7 +14,7 @@ module Agents
 
       * `token`: your application's API token
       * `user`: the user or group key (not e-mail address).
-      * `expected_receive_period_in_days`:  is maximum number of days that you would expect to pass between events being received by this agent.
+      * `expected_receive_period_in_days`:  is maximum number of days that you would expect to pass between events being received by this robot.
 
       Your event can provide any of the following optional parameters or you can provide defaults:
 

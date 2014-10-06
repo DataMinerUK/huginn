@@ -4,7 +4,7 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The JabberAgent will send any events it receives to your Jabber/XMPP IM account.
+      The JabberBot will send any events it receives to your Jabber/XMPP IM account.
 
       Specify the `jabber_server` and `jabber_port` for your Jabber server.
 

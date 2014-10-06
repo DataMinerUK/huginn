@@ -6,7 +6,7 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      The WeatherAgent creates an event for the day's weather at a given `location`.
+      The WeatherBot creates an event for the day's weather at a given `location`.
 
       You also must select `which_day` you would like to get the weather for where the number 0 is for today and 1 is for tomorrow and so on. Weather is only returned for 1 week at a time.
 
@@ -16,11 +16,11 @@ module Agents
 
       If you plan on using ForecastIO, the `location` must be a set of GPS coordinates.
 
-      You must setup an [API key for Wunderground](http://www.wunderground.com/weather/api/) in order to use this Agent with Wunderground.
+      You must setup an [API key for Wunderground](http://www.wunderground.com/weather/api/) in order to use this Robot with Wunderground.
 
-      You must setup an [API key for Forecast](https://developer.forecast.io/) in order to use this Agent with ForecastIO.
+      You must setup an [API key for Forecast](https://developer.forecast.io/) in order to use this Robot with ForecastIO.
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.
     MD
 
     event_description <<-MD

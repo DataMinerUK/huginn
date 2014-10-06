@@ -8,7 +8,7 @@ module Agents
     cannot_be_scheduled!
 
     description <<-MD
-      The WeiboPublishAgent publishes tweets from the events it receives.
+      The WeiboPublishBot publishes tweets from the events it receives.
 
       You must first set up a Weibo app and generate an `acess_token` for the user to send statuses as.
 
@@ -16,7 +16,7 @@ module Agents
 
       You must also specify a `message_path` parameter: a [JSONPaths](http://goessner.net/articles/JsonPath/) to the value to tweet.
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.
     MD
 
     def validate_options

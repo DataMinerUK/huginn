@@ -6,12 +6,12 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The EmailAgent sends any events it receives via email immediately.
+      The EmailBot sends any events it receives via email immediately.
       The email will be sent to your account's address and will have a `subject` and an optional `headline` before
       listing the Events.  If the Events' payloads contain a `:message`, that will be highlighted, otherwise everything in
       their payloads will be shown.
 
-      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Agent.
+      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Robot.
     MD
 
     def default_options

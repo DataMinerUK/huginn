@@ -6,7 +6,7 @@ module Agents
     DEFAULT_WEBHOOK = 'incoming-webhook'
     DEFAULT_USERNAME = 'Huginn'
     description <<-MD
-      The SlackAgent lets you receive events and send notifications to [slack](https://slack.com/).
+      The SlackBot lets you receive events and send notifications to [slack](https://slack.com/).
 
       To get started, you will first need to setup an incoming webhook.
       Go to, https://`your_team_name`.slack.com/services/new/incoming-webhook,

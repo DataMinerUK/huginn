@@ -5,13 +5,13 @@ module Agents
     default_schedule "every_10m"
 
     description <<-MD
-      You can use a HumanTaskAgent to create Human Intelligence Tasks (HITs) on Mechanical Turk.
+      You can use a HumanTaskBot to create Human Intelligence Tasks (HITs) on Mechanical Turk.
 
       HITs can be created in response to events, or on a schedule.  Set `trigger_on` to either `schedule` or `event`.
 
       # Schedule
 
-      The schedule of this Agent is how often it should check for completed HITs, __NOT__ how often to submit one.  To configure how often a new HIT
+      The schedule of this Robot is how often it should check for completed HITs, __NOT__ how often to submit one.  To configure how often a new HIT
       should be submitted when in `schedule` mode, set `submission_period` to a number of hours.
 
       # Example
@@ -69,10 +69,10 @@ module Agents
       ## Taking the majority
 
       Option 1: if all of your `questions` are of `type` _selection_, you can set `combination_mode` to `take_majority`.
-      This will cause the Agent to automatically select the majority vote for each question across all `assignments` and return it as `majority_answer`.
+      This will cause the Robot to automatically select the majority vote for each question across all `assignments` and return it as `majority_answer`.
       If all selections are numeric, an `average_answer` will also be generated.
 
-      Option 2: you can have the Agent ask additional human workers to rank the `assignments` and return the most highly ranked answer.
+      Option 2: you can have the Robot ask additional human workers to rank the `assignments` and return the most highly ranked answer.
       To do this, set `combination_mode` to `poll` and provide a `poll_options` object.  Here is an example:
 
           {
@@ -111,7 +111,7 @@ module Agents
 
       `lifetime_in_seconds` is the number of seconds a HIT is left on Amazon before it's automatically closed.  The default is 1 day.
 
-      As with most Agents, `expected_receive_period_in_days` is required if `trigger_on` is set to `event`.
+      As with most Robots, `expected_receive_period_in_days` is required if `trigger_on` is set to `event`.
     MD
 
     event_description <<-MD

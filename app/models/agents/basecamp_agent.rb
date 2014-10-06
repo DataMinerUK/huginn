@@ -3,7 +3,7 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      The BasecampAgent checks a Basecamp project for new Events
+      The BasecampBot checks a Basecamp project for new Events
 
       It is required that you enter your Basecamp credentials (`username` and `password`).
 
@@ -80,7 +80,7 @@ module Agents
     end
 
     def request_options
-      {:basic_auth => {:username => interpolated[:username], :password => interpolated[:password]}, :headers => {"User-Agent" => "Huginn (https://github.com/cantino/huginn)"}}
+      {:basic_auth => {:username => interpolated[:username], :password => interpolated[:password]}, :headers => {"User-Agent" => "Huginn (https://github.com/DataMinerUK/huginn)"}}
     end
 
     def query_parameters

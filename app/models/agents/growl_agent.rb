@@ -8,18 +8,18 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The GrowlAgent sends any events it receives to a Growl GNTP server immediately.
+      The GrowlBot sends any events it receives to a Growl GNTP server immediately.
       
-      It is assumed that events have a `message` or `text` key, which will hold the body of the growl notification, and a `subject` key, which will have the headline of the Growl notification. You can use Event Formatting Agent if your event does not provide these keys.
+      It is assumed that events have a `message` or `text` key, which will hold the body of the growl notification, and a `subject` key, which will have the headline of the Growl notification. You can use Event Formatting Robot if your event does not provide these keys.
 
-      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Agent.
+      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Robot.
     MD
 
     def default_options
       {
           'growl_server' => 'localhost',
           'growl_password' => '',
-          'growl_app_name' => 'HuginnGrowl',
+          'growl_app_name' => 'NewsUKGrowl',
           'growl_notification_name' => 'Notification',
           'expected_receive_period_in_days' => "2"
       }

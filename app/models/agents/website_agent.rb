@@ -12,7 +12,7 @@ module Agents
     UNIQUENESS_FACTOR = 3
 
     description <<-MD
-      The WebsiteAgent scrapes a website, XML document, or JSON feed and creates Events based on the results.
+      The WebsiteBot scrapes a website, XML document, or JSON feed and creates Events based on the results.
 
       Specify a `url` and select a `mode` for when to create Events based on the scraped data, either `all` or `on_change`.
 
@@ -20,7 +20,7 @@ module Agents
 
       The `type` value can be `xml`, `html`, or `json`.
 
-      To tell the Agent how to parse the content, specify `extract` as a hash with keys naming the extractions and values of hashes.
+      To tell the Robot how to parse the content, specify `extract` as a hash with keys naming the extractions and values of hashes.
 
       When parsing HTML or XML, these sub-hashes specify how to extract with either a `css` CSS selector or a `xpath` XPath expression and either `"text": true` or `attr` pointing to an attribute name to grab.  An example:
 
@@ -41,7 +41,7 @@ module Agents
 
       Can be configured to use HTTP basic auth by including the `basic_auth` parameter with `"username:password"`, or `["username", "password"]`.
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.  This is only used to set the "working" status.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.  This is only used to set the "working" status.
 
       Set `uniqueness_look_back` to limit the number of events checked for uniqueness (typically for performance).  This defaults to the larger of #{UNIQUENESS_LOOK_BACK} or #{UNIQUENESS_FACTOR}x the number of detected received results.
 
@@ -51,7 +51,7 @@ module Agents
 
       The `headers` field is optional.  When present, it should be a hash of headers to send with the request.
 
-      The WebsiteAgent can also scrape based on incoming events. It will scrape the url contained in the `url` key of the incoming event payload.
+      The WebsiteBot can also scrape based on incoming events. It will scrape the url contained in the `url` key of the incoming event payload.
     MD
 
     event_description do

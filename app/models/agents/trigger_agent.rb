@@ -5,7 +5,7 @@ module Agents
     VALID_COMPARISON_TYPES = %w[regex !regex field<value field<=value field==value field!=value field>=value field>value]
 
     description <<-MD
-      Use a TriggerAgent to watch for a specific value in an Event payload.
+      Use a TriggerBot to watch for a specific value in an Event payload.
 
       The `rules` array contains hashes of `path`, `value`, and `type`.  The `path` value is a dotted path through a hash in [JSONPaths](http://goessner.net/articles/JsonPath/) syntax.
 
@@ -13,11 +13,11 @@ module Agents
 
       The `value` can be a single value or an array of values. In the case of an array, if one or more values match then the rule matches. 
 
-      All rules must match for the Agent to match.  The resulting Event will have a payload message of `message`.  You can use liquid templating in the `message, have a look at the [Wiki](https://github.com/cantino/huginn/wiki/Formatting-Events-using-Liquid) for details.
+      All rules must match for the Robot to match.  The resulting Event will have a payload message of `message`.  You can use liquid templating in the `message, have a look at the [Wiki](https://github.com/cantino/huginn/wiki/Formatting-Events-using-Liquid) for details.
 
       Set `keep_event` to `true` if you'd like to re-emit the incoming event, optionally merged with 'message' when provided.
 
-      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Agent.
+      Set `expected_receive_period_in_days` to the maximum amount of time that you'd expect to pass between Events being received by this Robot.
     MD
 
     event_description <<-MD
@@ -83,7 +83,7 @@ module Agents
             when "field!=value"
               value_at_path.to_s != rule_value.to_s
             else
-              raise "Invalid type of #{rule['type']} in TriggerAgent##{id}"
+              raise "Invalid type of #{rule['type']} in TriggerBot##{id}"
             end
           end
         end

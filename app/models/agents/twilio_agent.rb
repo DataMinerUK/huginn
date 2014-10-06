@@ -7,13 +7,13 @@ module Agents
     cannot_create_events!
 
     description <<-MD
-      The TwilioAgent receives and collects events and sends them via text message (up to 160 characters) or gives you a call when scheduled.
+      The TwilioBot receives and collects events and sends them via text message (up to 160 characters) or gives you a call when scheduled.
 
-      It is assumed that events have a `message`, `text`, or `sms` key, the value of which is sent as the content of the text message/call. You can use the EventFormattingAgent if your event does not provide these keys.
+      It is assumed that events have a `message`, `text`, or `sms` key, the value of which is sent as the content of the text message/call. You can use the EventFormattingBot if your event does not provide these keys.
 
       Set `receiver_cell` to the number to receive text messages/call and `sender_cell` to the number sending them.
 
-      `expected_receive_period_in_days` is maximum number of days that you would expect to pass between events being received by this agent.
+      `expected_receive_period_in_days` is maximum number of days that you would expect to pass between events being received by this robot.
 
       If you would like to receive calls, set `receive_call` to `true`. In this case, `server_url` must be set to the URL of your
       Huginn installation (probably "https://#{ENV['DOMAIN']}"), which must be web-accessible.  Be sure to set http/https correctly.

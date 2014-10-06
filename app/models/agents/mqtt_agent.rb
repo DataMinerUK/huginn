@@ -5,7 +5,7 @@ require "json"
 module Agents
   class MqttAgent < Agent
     description <<-MD
-      The MQTT agent allows both publication and subscription to an MQTT topic.
+      The MQTT robot allows both publication and subscription to an MQTT topic.
 
       MQTT is a generic transport protocol for machine to machine communication.
 

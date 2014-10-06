@@ -8,13 +8,13 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      The WeiboUserAgent follows the timeline of a specified Weibo user. It uses this endpoint: http://open.weibo.com/wiki/2/statuses/user_timeline/en
+      The WeiboUserBot follows the timeline of a specified Weibo user. It uses this endpoint: http://open.weibo.com/wiki/2/statuses/user_timeline/en
 
       You must first set up a Weibo app and generate an `acess_token` to authenticate with. Provide that, along with the `app_key` and `app_secret` for your Weibo app in the options.
 
       Specify the `uid` of the Weibo user whose timeline you want to watch.
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.
     MD
 
     event_description <<-MD

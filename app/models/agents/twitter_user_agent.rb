@@ -7,11 +7,11 @@ module Agents
     cannot_receive_events!
 
     description <<-MD
-      The TwitterUserAgent follows the timeline of a specified Twitter user.
+      The TwitterUserBot follows the timeline of a specified Twitter user.
 
       Twitter credentials must be supplied as either [credentials](/user_credentials) called
       `twitter_consumer_key`, `twitter_consumer_secret`, `twitter_oauth_token`, and `twitter_oauth_token_secret`,
-      or as options to this Agent called `consumer_key`, `consumer_secret`, `oauth_token`, and `oauth_token_secret`.
+      or as options to this Robot called `consumer_key`, `consumer_secret`, `oauth_token`, and `oauth_token_secret`.
 
       To get oAuth credentials for Twitter, [follow these instructions](https://github.com/cantino/huginn/wiki/Getting-a-twitter-oauth-token).
 
@@ -19,9 +19,9 @@ module Agents
 
       Set `include_retweets` to `false` to not include retweets (default: `true`)
 
-      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Agent.
+      Set `expected_update_period_in_days` to the maximum amount of time that you'd expect to pass between Events being created by this Robot.
 
-      Set `starting_at` to the date/time (eg. `Mon Jun 02 00:38:12 +0000 2014`) you want to start receiving tweets from (default: agent's `created_at`)
+      Set `starting_at` to the date/time (eg. `Mon Jun 02 00:38:12 +0000 2014`) you want to start receiving tweets from (default: robot's `created_at`)
     MD
 
     event_description <<-MD
