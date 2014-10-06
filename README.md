@@ -20,12 +20,6 @@ Huginn is a system for building agents that perform automated tasks for you onli
 * Track your location over time
 * Create Amazon Mechanical Turk workflows as the inputs, or outputs, of agents.  ("Once a day, ask 5 people for a funny cat photo; send the results to 5 more people to be rated; send the top-rated photo to 5 people for a funny caption; send to 5 final people to rate for funniest caption; finally, post the best captioned photo on my blog.")
 
-Follow [@tectonic](https://twitter.com/tectonic) for updates as Huginn evolves, and join us in [our IRC channel](https://kiwiirc.com/client/irc.freenode.net/?nick=huginn-user|?#huginn) (\#huginn on Freenode) to discuss the project.
-
-### We need your help!
-
-Want to help with Huginn?  All contributions are encouraged!  You could make UI improvements, add new Agents, write documentation and tutorials, or try tackling [issues tagged with #help-wanted](https://github.com/cantino/huginn/issues?direction=desc&labels=help-wanted&page=1&sort=created&state=open).
-
 ## Examples
 
 Please checkout the [Huginn Introductory Screencast](http://vimeo.com/61976251)!
@@ -48,7 +42,7 @@ And now, some example screenshots.  Below them are instructions to get you start
 
 If you just want to play around, you can simply fork this repository, then perform the following steps:
 
-* Run `git remote add upstream https://github.com/cantino/huginn.git` to add the main repository as a remote for your fork.
+* Run `git remote add upstream https://github.com/DataMinerUK/huginn.git` to add the main repository as a remote for your fork.
 * Copy `.env.example` to `.env` (`cp .env.example .env`) and edit `.env`, at least updating the `APP_SECRET_TOKEN` variable.
 * Run `rake db:create`, `rake db:migrate`, and then `rake db:seed` to create a development MySQL database with some example Agents.
 * Run `foreman start`, visit [http://localhost:3000/][localhost], and login with the username of `admin` and the password of `password`.
@@ -61,18 +55,18 @@ Note: by default, emails are not sent in the `development` Rails environment, wh
 If you need more detailed instructions, see the [Novice setup guide][novice-setup-guide].
 
 [localhost]: http://localhost:3000/
-[wiki]: https://github.com/cantino/huginn/wiki
-[novice-setup-guide]: https://github.com/cantino/huginn/wiki/Novice-setup-guide
+[wiki]: https://github.com/DataMinerUK/huginn/wiki
+[novice-setup-guide]: https://github.com/DataMinerUK/huginn/wiki/Novice-setup-guide
 
 ## Deployment
 
-Please see [the Huginn Wiki](https://github.com/cantino/huginn/wiki#deploying-huginn) for detailed deployment strategies for different providers.
+Please see [the Huginn Wiki](https://github.com/DataMinerUK/huginn/wiki#deploying-huginn) for detailed deployment strategies for different providers.
 
 ### Optional Setup
 
 #### Setup for private development
 
-See [private development instructions](https://github.com/cantino/huginn/wiki/Private-development-instructions) on the wiki.
+See [private development instructions](https://github.com/DataMinerUK/huginn/wiki/Private-development-instructions) on the wiki.
 
 #### Enable the WeatherAgent
 
@@ -80,7 +74,7 @@ In order to use the WeatherAgent you need an [API key with Wunderground](http://
 
 #### Logging your location to the UserLocationAgent
 
-You can use [Post Location](https://github.com/cantino/post_location) on your iPhone to post your location to an instance of the UserLocationAgent.  Make a new one to see instructions.
+You can use [Post Location](https://github.com/DataMinerUK/post_location) on your iPhone to post your location to an instance of the UserLocationAgent.  Make a new one to see instructions.
 
 #### Enable DelayedJobWeb for handy delayed\_job monitoring and control
 
@@ -100,11 +94,4 @@ Huginn is provided under the MIT License.
 Huginn has its own IRC channel on freenode: #huginn.
 Some of us are hanging out there, come and say hello.
 
-## Contribution
-
-Huginn is a work in progress and is hopefully just getting started.  Please get involved!  You can [add new Agents](https://github.com/cantino/huginn/wiki/Creating-a-new-agent), expand the [Wiki](https://github.com/cantino/huginn/wiki), or help us simplify and strengthen the Agent API or core application.
-
-Please fork, add specs, and send pull requests!
-
-[![Build Status](https://travis-ci.org/cantino/huginn.png)](https://travis-ci.org/cantino/huginn) [![Coverage Status](https://coveralls.io/repos/cantino/huginn/badge.png)](https://coveralls.io/r/cantino/huginn) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cantino/huginn/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Dependency Status](https://gemnasium.com/cantino/huginn.svg)](https://gemnasium.com/cantino/huginn)
 
