@@ -59,10 +59,8 @@ RUN	chmod +x /home/huginn/start
 ################################################################################
 
 RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=gmail.com/g" /home/huginn/huginn/.env'
-RUN  su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=<your_email>/g" /home/huginn/huginn/.env'
-RUN  su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=<your_password>/g" /home/huginn/huginn/.env'
-RUN	su huginn -c 'sed -i "s/config.action_mailer.perform_deliveries = false/config.action_mailer.perform_deliveries = true/g" /home/huginn/huginn/config/environments/development.rb'
-
+RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=<your_email>/g" /home/huginn/huginn/.env'
+RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=<your_password>/g" /home/huginn/huginn/.env'
 
 
 ################################################################################
