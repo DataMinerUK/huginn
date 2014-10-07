@@ -25,4 +25,3 @@ deployment/cookbooks
 .ruby-gemset
 .ruby-version
 design.pages
-/config/smtp.yml
