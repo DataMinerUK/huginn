@@ -13,6 +13,7 @@ RUN	apt-get -y install libopenssl-ruby1.9.1 libssl-dev zlib1g-dev
 RUN	apt-get -y install libxslt-dev libxml2-dev libmysqlclient-dev curl git
 RUN	apt-get -y install mysql-server python-software-properties python g++
 RUN	apt-get -y install make
+RUN apt-get -y install vim
 RUN	gem install rake bundle
 
 
@@ -58,9 +59,9 @@ RUN	chmod +x /home/huginn/start
 # Enable Huginn email
 ################################################################################
 
-RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$(SMTP_DOMAIN)/g" /home/huginn/huginn/.env'
-RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$(SMTP_LOGIN)/g" /home/huginn/huginn/.env'
-RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$(SMTP_PASSWORD)/g" /home/huginn/huginn/.env'
+RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env'
+RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env'
+RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
 
 
 ################################################################################
