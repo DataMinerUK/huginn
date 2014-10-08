@@ -53,15 +53,17 @@ RUN	echo "#!/bin/bash\ncd /home/huginn/huginn\nsudo mysqld &\nforeman start" > /
 RUN	chown huginn /home/huginn/start
 RUN	chmod +x /home/huginn/start
 
-
-
 ################################################################################
-# Enable Huginn email
+# Copy Local Config Settings To Foreman ENV file
 ################################################################################
 
-RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env'
-RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env'
-RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
+ADD .config /tmp/config
+RUN bash -c 'source /tmp/config && sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env && sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env && sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
+RUN rm /tmp/config
+
+# RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env'
+# RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env'
+# RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
 
 
 ################################################################################
