@@ -40,8 +40,20 @@ RUN	echo "huginn ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/huginn
 # Huginn install
 ################################################################################
 
-RUN	cd /home/huginn && git clone git://github.com/DataMinerUK/huginn.git
-RUN	cd /home/huginn/huginn && su huginn -c bundle
+# Copy the Gemfile and Gemfile.lock into the image.
+# Temporarily set the working directory to where they are.
+WORKDIR /home/huginn/huginn
+ADD ./Gemfile Gemfile
+ADD ./Gemfile.lock Gemfile.lock
+RUN su huginn -c bundle install
+
+# Everything up to here was cached. This includes
+# the bundle install, unless the Gemfiles changed.
+# Now copy the app into the image.
+
+ADD . /home/huginn/huginn
+# RUN	cd /home/huginn && git clone git://github.com/DataMinerUK/huginn.git
+# RUN	cd /home/huginn/huginn && su huginn -c bundle
 RUN	chown -R huginn /home/huginn/huginn
 
 RUN	cd /home/huginn/huginn && su huginn -c 'sed s/REPLACE_ME_NOW\!/$(rake secret)/ .env.example > .env'
@@ -54,14 +66,14 @@ RUN	chown huginn /home/huginn/start
 RUN	chmod +x /home/huginn/start
 
 ################################################################################
-# Copy Local Config Settings To Foreman ENV file
+# Copy Local Config Settings To ENV
 ################################################################################
 
 ADD .config /tmp/config
-RUN bash -c 'source /tmp/config'
+RUN bash -c 'echo /tmp/config >> /home/huginn/.bashrc'
 
 ################################################################################
 # Refresh Huginn source code. Update VERSION number on changes to remote repo.
 ################################################################################
 
-RUN	cd /home/huginn/huginn && git pull && su huginn -c bundle && (mysqld &) && su huginn -c 'rake db:migrate'
+# RUN	cd /home/huginn/huginn && git pull && su huginn -c bundle && (mysqld &) && su huginn -c 'rake db:migrate'
