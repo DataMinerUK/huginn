@@ -58,13 +58,7 @@ RUN	chmod +x /home/huginn/start
 ################################################################################
 
 ADD .config /tmp/config
-RUN bash -c 'source /tmp/config && sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env && sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env && sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
-RUN rm /tmp/config
-
-# RUN su huginn -c 'sed -i "s/SMTP_DOMAIN=your-domain-here.com/SMTP_DOMAIN=$SMTP_DOMAIN/g" /home/huginn/huginn/.env'
-# RUN su huginn -c 'sed -i "s/SMTP_USER_NAME=you@gmail.com/SMTP_USER_NAME=$SMTP_USER_NAME/g" /home/huginn/huginn/.env'
-# RUN su huginn -c 'sed -i "s/SMTP_PASSWORD=somepassword/SMTP_PASSWORD=$SMTP_PASSWORD/g" /home/huginn/huginn/.env'
-
+RUN bash -c 'source /tmp/config'
 
 ################################################################################
 # Refresh Huginn source code. Update VERSION number on changes to remote repo.
