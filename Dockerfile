@@ -52,8 +52,10 @@ RUN su huginn -c bundle install
 # Now copy the app into the image.
 
 ADD . /home/huginn/huginn
-# RUN	cd /home/huginn && git clone git://github.com/DataMinerUK/huginn.git
-# RUN	cd /home/huginn/huginn && su huginn -c bundle
+ADD .config /tmp/config
+RUN bash -c 'cat "/tmp/config" >> /home/huginn/.bashrc'
+RUN rm /tmp/config
+
 RUN	chown -R huginn /home/huginn/huginn
 
 RUN	cd /home/huginn/huginn && su huginn -c 'sed s/REPLACE_ME_NOW\!/$(rake secret)/ .env.example > .env'
@@ -66,14 +68,7 @@ RUN	chown huginn /home/huginn/start
 RUN	chmod +x /home/huginn/start
 
 ################################################################################
-# Copy Local Config Settings To ENV
+# Start MySQL & run migrations.
 ################################################################################
 
-ADD .config /tmp/config
-RUN bash -c 'echo /tmp/config >> /home/huginn/.bashrc'
-
-################################################################################
-# Refresh Huginn source code. Update VERSION number on changes to remote repo.
-################################################################################
-
-# RUN	cd /home/huginn/huginn && git pull && su huginn -c bundle && (mysqld &) && su huginn -c 'rake db:migrate'
+RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:migrate'
