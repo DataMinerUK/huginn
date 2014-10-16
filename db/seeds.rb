@@ -1,13 +1,33 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-user = User.find_or_initialize_by(:email => "admin@example.com")
+# Default Development Settings
+
+admin_email = ENV['ADMIN_EMAIL'] || "admin@example.com"
+
+twitter_auth = {
+  twitter_consumer_key: ENV['TWITTER_CONSUMER_KEY'],
+  twitter_consumer_secret: ENV['TWITTER_CONSUMER_SECRET'],
+  twitter_oauth_token: ENV['TWITTER_OAUTH_TOKEN'],
+  twitter_oauth_token_secret: ENV['TWITTER_OAUTH_TOKEN_SECRET']
+}
+
+user = User.find_or_initialize_by(:email => admin_email)
 user.username = "admin"
 user.password = "password"
 user.password_confirmation = "password"
 user.invitation_code = User::INVITATION_CODES.first
 user.admin = true
 user.save!
+
+twitter_auth.each do |key, value|
+  return if value.nil?
+  credential_name = key.to_s.dup
+  credential_value = value.dup
+  user.user_credentials.create(credential_name: credential_name,
+                               credential_value: credential_value)
+end
+
 
 puts
 puts

@@ -26,7 +26,6 @@ RUN     wget -q http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz
 RUN     tar xzf node-v0.10.29-linux-x64.tar.gz --strip-components=1 -C /usr
 RUN     rm node-v0.10.29-linux-x64.tar.gz
 
-
 ################################################################################
 # Huginn user
 ################################################################################
@@ -52,13 +51,13 @@ RUN su huginn -c bundle install
 # Now copy the app into the image.
 
 ADD . /home/huginn/huginn
-ADD .config /tmp/config
-RUN bash -c 'cat "/tmp/config" >> /home/huginn/.bashrc'
-RUN rm /tmp/config
-
 RUN	chown -R huginn /home/huginn/huginn
 
+# Copy and change private config variables.
 RUN	cd /home/huginn/huginn && su huginn -c 'sed s/REPLACE_ME_NOW\!/$(rake secret)/ .env.example > .env'
+RUN bash -c 'cat "/home/huginn/huginn/.config" >> /home/huginn/huginn/.env'
+RUN rm /home/huginn/huginn/.config
+
 RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:create'
 RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:migrate'
 RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:seed'
@@ -66,9 +65,3 @@ RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:seed'
 RUN	echo "#!/bin/bash\ncd /home/huginn/huginn\nsudo mysqld &\nforeman start" > /home/huginn/start
 RUN	chown huginn /home/huginn/start
 RUN	chmod +x /home/huginn/start
-
-################################################################################
-# Start MySQL & run migrations.
-################################################################################
-
-RUN	cd /home/huginn/huginn && (mysqld &) && su huginn -c 'rake db:migrate'
