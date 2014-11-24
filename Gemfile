@@ -11,7 +11,7 @@ gem 'bundler', '>= 1.5.0'
 
 gem 'protected_attributes', '~>1.0.7'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.8'
 
 case RUBY_PLATFORM
 when /freebsd/
@@ -77,7 +77,6 @@ gem 'slack-notifier', '~> 0.5.0'
 gem 'therubyracer', '~> 0.12.1'
 
 gem 'mqtt'
-
 
 group :development do
   gem 'binding_of_caller'
